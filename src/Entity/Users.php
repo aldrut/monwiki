@@ -84,9 +84,21 @@ class Users
      */
     private $interest;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Article::class, mappedBy="users")
+     */
+    private $articles;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Files::class, mappedBy="users")
+     */
+    private $files;
+
     public function __construct()
     {
         $this->interest = new ArrayCollection();
+        $this->articles = new ArrayCollection();
+        $this->files = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -258,6 +270,66 @@ class Users
     public function removeInterest(interest $interest): self
     {
         $this->interest->removeElement($interest);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Article[]
+     */
+    public function getArticles(): Collection
+    {
+        return $this->articles;
+    }
+
+    public function addArticle(Article $article): self
+    {
+        if (!$this->articles->contains($article)) {
+            $this->articles[] = $article;
+            $article->setUsers($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArticle(Article $article): self
+    {
+        if ($this->articles->removeElement($article)) {
+            // set the owning side to null (unless already changed)
+            if ($article->getUsers() === $this) {
+                $article->setUsers(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Files[]
+     */
+    public function getFiles(): Collection
+    {
+        return $this->files;
+    }
+
+    public function addFile(Files $file): self
+    {
+        if (!$this->files->contains($file)) {
+            $this->files[] = $file;
+            $file->setUsers($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFile(Files $file): self
+    {
+        if ($this->files->removeElement($file)) {
+            // set the owning side to null (unless already changed)
+            if ($file->getUsers() === $this) {
+                $file->setUsers(null);
+            }
+        }
 
         return $this;
     }
