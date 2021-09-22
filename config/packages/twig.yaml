@@ -1,6 +1,42 @@
 twig:
     default_path: '%kernel.project_dir%/templates'
 
+    globals:
+        formatMail: 'jean.bertrand@gmail.com'
+
+# VALEUR DES TITRES
+        titreGeneral: 'MonWiki'
+        titreAccueil: 'Accueil'
+        titreLogin: 'Connexion'
+        titreContentNewsletter: 'Bienvenue dans la newsletter de'
+        titreNewsletter: "S'inscrire au forum"
+        titreAbout: 'A propos'
+
+# VALEUR DES BOUTONS
+        btnTxtInscription: 'Valider'
+        btnTxtReset: 'Réinitialiser'
+        btnInscription: 'Inscrivez-vous'
+# VALEUR DES LABELS
+        lblName: 'Veuillez saisir votre nom :'
+        lblFirstName: 'Veuillez saisir votre prénom :'
+        lblMail: 'Veuillez saisir votre email :'
+        lblMail2: 'Veuillez confirmer votre email :'
+        lblPwd: 'Veuillez saisir votre mot de passe :'
+        lblPwd2: 'Veuillez confirmer votre mot de passe :'
+        lblPhone: 'Veuillez saisir votre téléphone :'
+        lblImgSrc: 'Veuillez saisir votre email :'
+        lblRole: 'Rôle :'
+        lblNbResponse: 'Nombre de réponse :'
+        lblNbQuestion: 'Nombre de question :'
+        lblNewsletter: 'Abonné à la newsletter :'
+
+# VALEUR CHECKBOX
+        cbRegle: "J'accepte de suivre les règles du club, et j'autorise le site à traiter mes données. 
+        Je note que je dispose d'un droit d'accès, d'édition et de suppression sur mes données, et que mes données ne seront pas transmises
+         à un tiers sans mon consentement."
+
+
+
 when@test:
     twig:
         strict_variables: true

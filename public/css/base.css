@@ -1,0 +1,51 @@
+:root
+{
+    --textBlue : #293a4e;
+    --bgSkyBlue : #00c3ff;
+}
+body{
+    padding-top: 62px;
+    
+}
+
+@font-face {
+    font-family: 'Cassandra';
+    src: url('../fonts/cassandra.ttf') format('truetype');
+}
+.navbar.fixed-top{
+    font-family: 'Segoe Print';
+    font-size: 1em;
+    
+}
+.navbar.fixed-top input{
+    font-family: var(--bs-body-font-family);
+}
+
+.navbar-brand img{
+    max-height: 48px;
+    margin: -6px 0px;
+}
+#site_name{
+    display: inline;
+    
+}
+
+#site_name span{  
+    font-size: 1em;
+    position: relative;
+    top: 16px;
+    right: 16px;
+}
+
+.inscription
+{
+    color: var(--textBlue);
+}
+.bgInscription
+{
+    background-color: var(--bgSkyBlue);
+}
+
+
+
+

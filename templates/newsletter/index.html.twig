@@ -1,0 +1,65 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{newsletter ?? 'newsletter'}}
+{% endblock %}
+
+{% block content %}
+	<style>
+		.example-wrapper {
+			margin: 1em auto;
+			width: 95%;
+			font: 18px / 1.5 sans-serif;
+		}
+		.example-wrapper code {
+			background: #F5F5F5;
+			padding: 2px 6px;
+		}
+	</style>
+
+	<div class="example-wrapper">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col text-center"><h1>{{titreContentNewsletter}}{{titreGeneral}}</h1></div>
+			</div>
+
+			<div class="row mt-5">
+				<div class="col">
+					<div class="row">
+						<div class="col">Chers collègues de l'informatique,</div>
+					</div>
+					<div class="row">
+						<div class="col">
+							<p style='text-align:justify'>
+								Bienvenue sur le club d'entraide des décideurs et professionnels de l'informatique. 
+								Inscrivez-vous gratuitement à la communauté pour recevoir gratuitement la Lettre hebdomadaire des 
+								professionnels de l'informatique, et aussi pour vous faire aider sur les forums d'entraide et participer 
+								aux discussions, aux débats, etc ...</p>
+						</div>
+					</div>
+				</div>
+				<div class="col">
+					<form action="" method="post">
+						<div class="row">
+							<div class="col border border-info text-center rounded-3">Inscription à la  newsletter</div>
+						</div>
+						<div class="row justify-content-center d-flex">
+							<div class="col-4"></div>
+							<div class="col-4">
+								<div class="row mt-2"><label for="mail">{{lblMail}}</label></div>
+								<div class="row mt-2"><input type="email" id="mail" name="mail" placeholder={{formatMail}}></div>
+								<div class="row mt-2"><input type="submit" class="btn btn-outline-primary" value={{btnInscription}}></div>
+							</div>
+							<div class="col-4"></div>
+							</div>
+						
+							
+							
+							
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
