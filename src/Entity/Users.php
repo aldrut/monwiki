@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UsersRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -76,6 +78,16 @@ class Users
      * @ORM\Column(type="boolean", nullable=true)
      */
     private $activated;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=interest::class, inversedBy="users")
+     */
+    private $interest;
+
+    public function __construct()
+    {
+        $this->interest = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -222,6 +234,30 @@ class Users
     public function setActivated(?bool $activated): self
     {
         $this->activated = $activated;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|interest[]
+     */
+    public function getInterest(): Collection
+    {
+        return $this->interest;
+    }
+
+    public function addInterest(interest $interest): self
+    {
+        if (!$this->interest->contains($interest)) {
+            $this->interest[] = $interest;
+        }
+
+        return $this;
+    }
+
+    public function removeInterest(interest $interest): self
+    {
+        $this->interest->removeElement($interest);
 
         return $this;
     }
