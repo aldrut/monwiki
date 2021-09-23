@@ -24,12 +24,8 @@ main{
 .Pr{
     margin-right: -10px !important;
 }
-.cardLink{
-    text-decoration: none;
-    color :black;
-}
-.cardLink h5:hover{
-    color:var(--darkColor);
+.card-body h2{
+ text-decoration: underline;
 }
 @font-face {
     font-family: 'Cassandra';
