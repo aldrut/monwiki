@@ -2,66 +2,85 @@
 
 namespace App\Entity;
 
-use App\Repository\InterestRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=InterestRepository::class)
+ * Interest
+ *
+ * @ORM\Table(name="interest")
+ * @ORM\Entity
  */
 class Interest
 {
     /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @var string|null
+     *
+     * @ORM\Column(name="name", type="string", length=255, nullable=true)
      */
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @var string|null
+     *
+     * @ORM\Column(name="description", type="string", length=255, nullable=true)
      */
     private $description;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Users::class, mappedBy="interest")
+     * @var \Doctrine\Common\Collections\Collection
+     *
+     * @ORM\ManyToMany(targetEntity="Users", mappedBy="interest")
      */
     private $users;
 
+    /**
+     * Constructor
+     */
     public function __construct()
     {
-        $this->users = new ArrayCollection();
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
-    public function getName(): ?string
+    /**
+     * Get the value of name
+     */
+    public function getName()
     {
         return $this->name;
     }
 
-    public function setName(?string $name): self
+    /**
+     * Set the value of name
+     */
+    public function setName($name): self
     {
         $this->name = $name;
 
         return $this;
     }
 
-    public function getDescription(): ?string
+    /**
+     * Get the value of description
+     */
+    public function getDescription()
     {
         return $this->description;
     }
 
-    public function setDescription(?string $description): self
+    /**
+     * Set the value of description
+     */
+    public function setDescription($description): self
     {
         $this->description = $description;
 
@@ -69,28 +88,19 @@ class Interest
     }
 
     /**
-     * @return Collection|Users[]
+     * Get the value of users
      */
-    public function getUsers(): Collection
+    public function getUsers()
     {
         return $this->users;
     }
 
-    public function addUser(Users $user): self
+    /**
+     * Set the value of users
+     */
+    public function setUsers($users): self
     {
-        if (!$this->users->contains($user)) {
-            $this->users[] = $user;
-            $user->addInterest($this);
-        }
-
-        return $this;
-    }
-
-    public function removeUser(Users $user): self
-    {
-        if ($this->users->removeElement($user)) {
-            $user->removeInterest($this);
-        }
+        $this->users = $users;
 
         return $this;
     }

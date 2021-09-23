@@ -24,11 +24,11 @@ class UsersFixtures extends Fixture  {
 
 
         $tab = array( 
-            array('name'=>'DRUT','firstname'=>'Alexandre','mail'=>'adrut@free.fr','pwd'=>'1111','phone'=>'01','subdate'=>'21-09-2021 12:55','nbresponse'=>'1','role'=>'admin','newsletter'=>'false','activated'=>'false','imgsrc'=>'/ttt','nbquestion'=>'1'),
-            array('name'=>'DRUT','firstname'=>'Alexandre','mail'=>'adrut@free.fr','pwd'=>'1111','phone'=>'01','subdate'=>'21-09-2021 12:55','nbresponse'=>'1','role'=>'admin','newsletter'=>'false','activated'=>'false','imgsrc'=>'/ttt','nbquestion'=>'1'),
-            array('name'=>'DRUT','firstname'=>'Alexandre','mail'=>'adrut@free.fr','pwd'=>'1111','phone'=>'01','subdate'=>'21-09-2021 12:55','nbresponse'=>'1','role'=>'admin','newsletter'=>'false','activated'=>'false','imgsrc'=>'/ttt','nbquestion'=>'1'),
-            array('name'=>'DRUT','firstname'=>'Alexandre','mail'=>'adrut@free.fr','pwd'=>'1111','phone'=>'01','subdate'=>'21-09-2021 12:55','nbresponse'=>'1','role'=>'admin','newsletter'=>'false','activated'=>'false','imgsrc'=>'/ttt','nbquestion'=>'1'),
-            array('name'=>'DRUT','firstname'=>'Alexandre','mail'=>'adrut@free.fr','pwd'=>'1111','phone'=>'01','subdate'=>'21-09-2021 12:55','nbresponse'=>'1','role'=>'admin','newsletter'=>'false','activated'=>'false','imgsrc'=>'/ttt','nbquestion'=>'1'),
+            array('name'=>'DRUT','firstname'=>'Alexandre','mail'=>'alexandre@free.fr','pwd'=>'1111','phone'=>'01','subdate'=>'21-09-2021 12:55','nbresponse'=>'1','role'=>'admin','newsletter'=>'false','activated'=>'false','imgsrc'=>'/ttt','nbquestion'=>'1'),
+            array('name'=>'DRUT','firstname'=>'Albert','mail'=>'albert@free.fr','pwd'=>'1111','phone'=>'01','subdate'=>'21-09-2021 12:55','nbresponse'=>'1','role'=>'admin','newsletter'=>'false','activated'=>'false','imgsrc'=>'/ttt','nbquestion'=>'1'),
+            array('name'=>'DRUT','firstname'=>'Lucien','mail'=>'lucien@free.fr','pwd'=>'1111','phone'=>'01','subdate'=>'21-09-2021 12:55','nbresponse'=>'1','role'=>'admin','newsletter'=>'false','activated'=>'false','imgsrc'=>'/ttt','nbquestion'=>'1'),
+            array('name'=>'DRUT','firstname'=>'Guillaume','mail'=>'guillaume@free.fr','pwd'=>'1111','phone'=>'01','subdate'=>'21-09-2021 12:55','nbresponse'=>'1','role'=>'admin','newsletter'=>'false','activated'=>'false','imgsrc'=>'/ttt','nbquestion'=>'1'),
+            array('name'=>'DRUT','firstname'=>'Maxime','mail'=>'maxime@free.fr','pwd'=>'1111','phone'=>'01','subdate'=>'21-09-2021 12:55','nbresponse'=>'1','role'=>'admin','newsletter'=>'false','activated'=>'false','imgsrc'=>'/ttt','nbquestion'=>'1'),
             // array('name'=>'DRUT','firstname'=>'Alexandre','mail'=>'adrut@free.fr','pwd'=>'1111','phone'=>'01','subdate'=>'21-09-2021 12:55','nbresponse'=>'1','role'=>'admin','newsletter'=>'false','activated'=>'false','imgsrc'=>'/ttt','nbquestion'=>'1'),
             // array('name'=>'DRUT','firstname'=>'Alexandre','mail'=>'adrut@free.fr','pwd'=>'1111','phone'=>'01','subdate'=>'21-09-2021 12:55','nbresponse'=>'1','role'=>'admin','newsletter'=>'false','activated'=>'false','imgsrc'=>'/ttt','nbquestion'=>'1'),
             // array('name'=>'DRUT','firstname'=>'Alexandre','mail'=>'adrut@free.fr','pwd'=>'1111','phone'=>'01','subdate'=>'21-09-2021 12:55','nbresponse'=>'1','role'=>'admin','newsletter'=>'false','activated'=>'false','imgsrc'=>'/ttt','nbquestion'=>'1'),
@@ -57,25 +57,20 @@ class UsersFixtures extends Fixture  {
         $news -> setName($row['name']);
         $news -> setFirstname($row['firstname']);
         $news -> setMail($row['mail']);
-        // $news -> setPwd($row['pwd']);
+        $news -> setPwd($row['pwd']);
         // $news -> setPhone($row['phone']);
-        $news -> setSubdate(new DateTime($row['subdate']));
-        $news -> setImgsrc($row['imgsrc']);
-        $news -> setNbresponse($row['nbresponse']);
-        $news -> setNbquestion($row['nbquestion']);
-        $news -> setRole($row['role']);
-        $news -> setNewsletter($row['newsletter']);
-        $news -> setActivated($row['activated']);
+        //$news -> setSubdate(new DateTime($row['subdate']));
+        // $news -> setImgsrc($row['imgsrc']);
+        // $news -> setNbresponse($row['nbresponse']);
+        // $news -> setNbquestion($row['nbquestion']);
+        // $news -> setRole($row['role']);
+        // $news -> setNewsletter($row['newsletter']);
+        // $news -> setActivated($row['activated']);
 
            $manager->persist($news);
 
         $manager->flush(); 
         }
-
-
-        
-
-        
     }
 }
 

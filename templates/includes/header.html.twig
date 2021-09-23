@@ -20,29 +20,20 @@
           {{titreLogin}}
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-            <form action="" method="post">
-            <div class="row">
-              <div class="col">
-              <label for="login">Login :</label>               
-              </div>
-              <div class="col">
-              <input type="text">
-              </div>
+            <form class="px-5 py-3" action="" method="post">
+            {# SECTION LOGIN #}
+            <div class="row">            
+              <div class="col-5"><label for="login">Login :</label></div>
+              <div class="col"><input type="email"></div>
             </div>
-            <div class="row">
-              <div class="col">
-              <label for="login">Mot de passe :</label>               
-              </div>
-              <div class="col">
-              <input type="password">
-              </div>
+            {# SECTION PASSWORD #}
+            <div class="row mt-2">
+              <div class="col"><label for="login">Mot de passe :</label></div>
+              <div class="col"><input type="password"></div>
             </div>
-            <div class="row">
+            <div class="row mt-3">
               <div class="col">
-              <input type="submit" class="btn btn-outline-primary" value="Connexion">
-              </div>
-              <div class="col">
-              <a href="/users">s'inscrire</a>
+              <input type="submit" class="btn btn-outline-primary" value="Connexion">&nbsp;<a href="/users">s'inscrire</a>
               </div>
             </div>
             </form>

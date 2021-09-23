@@ -2,63 +2,65 @@
 
 namespace App\Entity;
 
-use App\Repository\ArticleRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=ArticleRepository::class)
+ * Article
+ *
+ * @ORM\Table(name="article", indexes={@ORM\Index(name="IDX_23A0E6694F4A9D2", columns={"themes_id"}), @ORM\Index(name="IDX_23A0E6667B3B43D", columns={"users_id"})})
+ * @ORM\Entity
  */
 class Article
 {
     /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @var string|null
+     *
+     * @ORM\Column(name="title", type="string", length=255, nullable=true)
      */
     private $title;
 
     /**
-     * @ORM\Column(type="datetime", nullable=true)
+     * @var \DateTime|null
+     *
+     * @ORM\Column(name="post_date", type="datetime", nullable=true)
      */
     private $postDate;
 
     /**
-     * @ORM\Column(type="text", nullable=true)
+     * @var string|null
+     *
+     * @ORM\Column(name="content", type="text", length=0, nullable=true)
      */
     private $content;
 
     /**
-     * @ORM\ManyToOne(targetEntity=users::class, inversedBy="articles")
+     * @var \Users
+     *
+     * @ORM\ManyToOne(targetEntity="Users")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="users_id", referencedColumnName="id")
+     * })
      */
     private $users;
 
     /**
-     * @ORM\ManyToOne(targetEntity=themes::class, inversedBy="articles")
+     * @var \Themes
+     *
+     * @ORM\ManyToOne(targetEntity="Themes")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="themes_id", referencedColumnName="id")
+     * })
      */
     private $themes;
-
-    /**
-     * @ORM\OneToMany(targetEntity=Files::class, mappedBy="article")
-     */
-    private $files;
-
-    /**
-     * @ORM\OneToMany(targetEntity=Commentary::class, mappedBy="article")
-     */
-    private $commentaries;
-
-    public function __construct()
-    {
-        $this->files = new ArrayCollection();
-        $this->commentaries = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -101,87 +103,29 @@ class Article
         return $this;
     }
 
-    public function getUsers(): ?users
+    public function getUsers(): ?Users
     {
         return $this->users;
     }
 
-    public function setUsers(?users $users): self
+    public function setUsers(?Users $users): self
     {
         $this->users = $users;
 
         return $this;
     }
 
-    public function getThemes(): ?themes
+    public function getThemes(): ?Themes
     {
         return $this->themes;
     }
 
-    public function setThemes(?themes $themes): self
+    public function setThemes(?Themes $themes): self
     {
         $this->themes = $themes;
 
         return $this;
     }
 
-    /**
-     * @return Collection|Files[]
-     */
-    public function getFiles(): Collection
-    {
-        return $this->files;
-    }
 
-    public function addFile(Files $file): self
-    {
-        if (!$this->files->contains($file)) {
-            $this->files[] = $file;
-            $file->setArticle($this);
-        }
-
-        return $this;
-    }
-
-    public function removeFile(Files $file): self
-    {
-        if ($this->files->removeElement($file)) {
-            // set the owning side to null (unless already changed)
-            if ($file->getArticle() === $this) {
-                $file->setArticle(null);
-            }
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Commentary[]
-     */
-    public function getCommentaries(): Collection
-    {
-        return $this->commentaries;
-    }
-
-    public function addCommentary(Commentary $commentary): self
-    {
-        if (!$this->commentaries->contains($commentary)) {
-            $this->commentaries[] = $commentary;
-            $commentary->setArticle($this);
-        }
-
-        return $this;
-    }
-
-    public function removeCommentary(Commentary $commentary): self
-    {
-        if ($this->commentaries->removeElement($commentary)) {
-            // set the owning side to null (unless already changed)
-            if ($commentary->getArticle() === $this) {
-                $commentary->setArticle(null);
-            }
-        }
-
-        return $this;
-    }
 }

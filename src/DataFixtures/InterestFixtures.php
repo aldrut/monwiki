@@ -26,7 +26,7 @@ class InterestFixtures extends Fixture  {
             
             $interest = new Interest();
             $interest -> setName($row['name']);
-            $interest -> setDescription($row['description']);
+            $interest -> setName($row['description']);
 
             $manager->persist($interest);
 

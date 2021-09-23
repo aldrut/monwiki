@@ -17,6 +17,7 @@ twig:
         btnTxtReset: 'Réinitialiser'
         btnInscription: 'Inscrivez-vous'
 # VALEUR DES LABELS
+        lblPseudo: 'Veuillez saisir un pseudo'
         lblName: 'Veuillez saisir votre nom :'
         lblFirstName: 'Veuillez saisir votre prénom :'
         lblMail: 'Veuillez saisir votre email :'
