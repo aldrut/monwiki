@@ -2,12 +2,35 @@
 {
     --darkColor : #20247b;
     --bgSkyBlue : #00c3ff;
+    --bgGray : rgb(49, 49, 49);
 }
 body{
-    padding-top: 200px;
-    
+    padding-top: 53px;
+    margin-bottom: 53px;
+}
+main{
+    margin: 1em auto;
 }
 
+.nopad{
+    padding: 0 !important;
+}
+
+.bg-menu{
+    background-color: var(--bgGray);
+    min-height: calc(100vh - 106px);
+  
+}
+.Pr{
+    margin-right: -10px !important;
+}
+.cardLink{
+    text-decoration: none;
+    color :black;
+}
+.cardLink h5:hover{
+    color:var(--darkColor);
+}
 @font-face {
     font-family: 'Cassandra';
     src: url('../fonts/cassandra.ttf') format('truetype');
