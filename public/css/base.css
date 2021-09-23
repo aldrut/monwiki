@@ -1,10 +1,10 @@
 :root
 {
-    --textBlue : #293a4e;
+    --darkColor : #20247b;
     --bgSkyBlue : #00c3ff;
 }
 body{
-    padding-top: 62px;
+    padding-top: 200px;
     
 }
 
@@ -39,7 +39,7 @@ body{
 
 .inscription
 {
-    color: var(--textBlue);
+    color: var(--darkColor);
 }
 .bgInscription
 {
@@ -51,4 +51,19 @@ body{
     width: 500px;
 }
 
+textarea
+{
+    resize: none;
+}
 
+.taille
+{
+    width: 50px;
+    height: 50px;
+    
+}
+
+
+
+
+                                        
