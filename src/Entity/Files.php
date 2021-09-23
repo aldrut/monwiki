@@ -2,33 +2,49 @@
 
 namespace App\Entity;
 
-use App\Repository\FilesRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=FilesRepository::class)
+ * Files
+ *
+ * @ORM\Table(name="files", indexes={@ORM\Index(name="IDX_63540597294869C", columns={"article_id"}), @ORM\Index(name="IDX_635405967B3B43D", columns={"users_id"})})
+ * @ORM\Entity
  */
 class Files
 {
     /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue
-     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @var string|null
+     *
+     * @ORM\Column(name="path", type="string", length=255, nullable=true)
      */
     private $path;
 
     /**
-     * @ORM\ManyToOne(targetEntity=users::class, inversedBy="files")
+     * @var \Users
+     *
+     * @ORM\ManyToOne(targetEntity="Users")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="users_id", referencedColumnName="id")
+     * })
      */
     private $users;
 
     /**
-     * @ORM\ManyToOne(targetEntity=article::class, inversedBy="files")
+     * @var \Article
+     *
+     * @ORM\ManyToOne(targetEntity="Article")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="article_id", referencedColumnName="id")
+     * })
      */
     private $article;
 
@@ -49,27 +65,29 @@ class Files
         return $this;
     }
 
-    public function getUsers(): ?users
+    public function getUsers(): ?Users
     {
         return $this->users;
     }
 
-    public function setUsers(?users $users): self
+    public function setUsers(?Users $users): self
     {
         $this->users = $users;
 
         return $this;
     }
 
-    public function getArticle(): ?article
+    public function getArticle(): ?Article
     {
         return $this->article;
     }
 
-    public function setArticle(?article $article): self
+    public function setArticle(?Article $article): self
     {
         $this->article = $article;
 
         return $this;
     }
+
+
 }

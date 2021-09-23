@@ -46,6 +46,9 @@ body{
     background-color: var(--bgSkyBlue);
 }
 
-
+.login
+{
+    width: 500px;
+}
 
 

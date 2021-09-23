@@ -17,4 +17,8 @@ class NewsletterController extends AbstractController
             'controller_name' => 'NewsletterController',
         ]);
     }
+
+    
+
+
 }
