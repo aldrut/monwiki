@@ -1,20 +1,17 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ArticleController!{% endblock %}
+{% block title %}Mon wiki : Article {{article.title}} {% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+{% block content %}
+    <div class="article_box p-3">
+        <h3 class="article_title">{{ article.title }}</h3>
+        <div class="article_content">{{article.content}}</div>
+        <div class="article_files"> un fichier a dl</div>
+        <span class="article_userName">Rédiger par : Nom de L'auteur /</span>
+        <span class="article_postDate">Le : {{article.getPostDateString()}}</span>
+    </div>
+    </br>
+    <h4 class="commantary p-2">Les commentaire :</h4>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ 'C:/wamp64/www/monwiki/src/Controller/ArticleController.php'|file_link(0) }}">src/Controller/ArticleController.php</a></code></li>
-        <li>Your template at <code><a href="{{ 'C:/wamp64/www/monwiki/templates/article/index.html.twig'|file_link(0) }}">templates/article/index.html.twig</a></code></li>
-    </ul>
-</div>
+    
 {% endblock %}
