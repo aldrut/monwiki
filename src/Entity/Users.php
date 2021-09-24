@@ -2,210 +2,156 @@
 
 namespace App\Entity;
 
+use App\Repository\UsersRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Users
- *
- * @ORM\Table(name="users")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=UsersRepository::class)
  */
 class Users
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
      */
     private $id;
 
     /**
-     * @var string|null
-     *
-     * @ORM\Column(name="name", type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $name;
 
     /**
-     * @var string|null
-     *
-     * @ORM\Column(name="firstname", type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private $firstname;
+    private $firstName;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="mail", type="string", length=255, nullable=false)
+     * @ORM\Column(type="string", length=255)
      */
     private $mail;
 
     /**
-     * @var string|null
-     *
-     * @ORM\Column(name="pwd", type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $pwd;
 
     /**
-     * @var string|null
-     *
-     * @ORM\Column(name="phone", type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $phone;
 
     /**
-     * @var int|null
-     *
-     * @ORM\Column(name="nbresponse", type="integer", nullable=true)
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $nbresponse;
 
     /**
-     * @var string
-     *
-     * @ORM\Column(name="role", type="string", length=255, nullable=false)
+     * @ORM\Column(type="string", length=255)
      */
     private $role;
 
     /**
-     * @var bool|null
-     *
-     * @ORM\Column(name="newsletter", type="boolean", nullable=true)
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $newsletter;
 
     /**
-     * @var bool|null
-     *
-     * @ORM\Column(name="activated", type="boolean", nullable=true)
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $activated;
 
     /**
-     * @var \DateTime|null
-     *
-     * @ORM\Column(name="subdate", type="datetime", nullable=true)
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $subdate;
 
     /**
-     * @var string|null
-     *
-     * @ORM\Column(name="imgsrc", type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $imgsrc;
 
     /**
-     * @var int|null
-     *
-     * @ORM\Column(name="nbquestion", type="integer", nullable=true)
+     * @ORM\Column(type="integer", nullable=true)
      */
     private $nbquestion;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Interest", inversedBy="users")
-     * @ORM\JoinTable(name="users_interest",
-     *   joinColumns={
-     *     @ORM\JoinColumn(name="users_id", referencedColumnName="id")
-     *   },
-     *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="interest_id", referencedColumnName="id")
-     *   }
-     * )
+     * @ORM\ManyToMany(targetEntity=Interest::class, inversedBy="users")
      */
     private $interest;
 
     /**
-     * Constructor
+     * @ORM\OneToMany(targetEntity=Files::class, mappedBy="users")
      */
-    public function __construct()
-    {
-        $this->interest = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-
+    private $files;
 
     /**
-     * Get the value of name
+     * @ORM\OneToMany(targetEntity=Article::class, mappedBy="users")
      */
-    public function getName()
+    private $articles;
+
+    public function __construct()
+    {
+        $this->interest = new ArrayCollection();
+        $this->files = new ArrayCollection();
+        $this->articles = new ArrayCollection();
+    }
+
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    public function getName(): ?string
     {
         return $this->name;
     }
 
-    /**
-     * Set the value of name
-     */
-    public function setName($name): self
+    public function setName(?string $name): self
     {
         $this->name = $name;
 
         return $this;
     }
 
-    /**
-     * Get the value of firstname
-     */
-    public function getFirstname()
+    public function getFirstName(): ?string
     {
-        return $this->firstname;
+        return $this->firstName;
     }
 
-    /**
-     * Set the value of firstname
-     */
-    public function setFirstname($firstname): self
+    public function setFirstName(?string $firstName): self
     {
-        $this->firstname = $firstname;
+        $this->firstName = $firstName;
 
         return $this;
     }
 
-    /**
-     * Get the value of mail
-     */
-    public function getMail()
+    public function getMail(): ?string
     {
         return $this->mail;
     }
 
-    /**
-     * Set the value of mail
-     */
-    public function setMail($mail): self
+    public function setMail(string $mail): self
     {
         $this->mail = $mail;
 
         return $this;
     }
 
-    /**
-     * Get the value of pwd
-     */
-    public function getPwd()
+    public function getPwd(): ?string
     {
         return $this->pwd;
     }
 
-    /**
-     * Set the value of pwd
-     */
-    public function setPwd($pwd): self
+    public function setPwd(?string $pwd): self
     {
         $this->pwd = $pwd;
 
         return $this;
-    }
-
-    public function getId(): ?int
-    {
-        return $this->id;
     }
 
     public function getPhone(): ?string
@@ -324,6 +270,66 @@ class Users
     public function removeInterest(Interest $interest): self
     {
         $this->interest->removeElement($interest);
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Files[]
+     */
+    public function getFiles(): Collection
+    {
+        return $this->files;
+    }
+
+    public function addFile(Files $file): self
+    {
+        if (!$this->files->contains($file)) {
+            $this->files[] = $file;
+            $file->setUsers($this);
+        }
+
+        return $this;
+    }
+
+    public function removeFile(Files $file): self
+    {
+        if ($this->files->removeElement($file)) {
+            // set the owning side to null (unless already changed)
+            if ($file->getUsers() === $this) {
+                $file->setUsers(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Article[]
+     */
+    public function getArticles(): Collection
+    {
+        return $this->articles;
+    }
+
+    public function addArticle(Article $article): self
+    {
+        if (!$this->articles->contains($article)) {
+            $this->articles[] = $article;
+            $article->setUsers($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArticle(Article $article): self
+    {
+        if ($this->articles->removeElement($article)) {
+            // set the owning side to null (unless already changed)
+            if ($article->getUsers() === $this) {
+                $article->setUsers(null);
+            }
+        }
 
         return $this;
     }

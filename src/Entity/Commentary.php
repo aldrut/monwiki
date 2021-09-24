@@ -2,53 +2,38 @@
 
 namespace App\Entity;
 
+use App\Repository\CommentaryRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Commentary
- *
- * @ORM\Table(name="commentary", indexes={@ORM\Index(name="IDX_1CAC12CA7294869C", columns={"article_id"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass=CommentaryRepository::class)
  */
 class Commentary
 {
     /**
-     * @var int
-     *
-     * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue
+     * @ORM\Column(type="integer")
      */
     private $id;
 
     /**
-     * @var string|null
-     *
-     * @ORM\Column(name="message", type="text", length=0, nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
     private $message;
 
     /**
-     * @var \DateTime|null
-     *
-     * @ORM\Column(name="post_date", type="datetime", nullable=true)
+     * @ORM\Column(type="datetime", nullable=true)
      */
     private $postDate;
 
     /**
-     * @var string|null
-     *
-     * @ORM\Column(name="img_src", type="text", length=0, nullable=true)
+     * @ORM\Column(type="text", nullable=true)
      */
     private $imgSrc;
 
     /**
-     * @var \Article
-     *
-     * @ORM\ManyToOne(targetEntity="Article")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="article_id", referencedColumnName="id")
-     * })
+     * @ORM\ManyToOne(targetEntity=Article::class, inversedBy="commentaries")
      */
     private $article;
 
@@ -104,6 +89,4 @@ class Commentary
 
         return $this;
     }
-
-
 }
