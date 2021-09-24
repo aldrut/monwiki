@@ -1,5 +1,6 @@
 twig:
     default_path: '%kernel.project_dir%/templates'
+    form_themes: ['bootstrap_5_layout.html.twig']
 
     globals:
         formatMail: 'jean.bertrand@gmail.com'
@@ -15,9 +16,9 @@ twig:
 # VALEUR DES BOUTONS
         btnTxtInscription: 'Valider'
         btnTxtReset: 'Réinitialiser'
-        btnInscription: 'Inscrivez-vous'
+        btnInscription: "Inscrivez-vous"
 # VALEUR DES LABELS
-        lblPseudo: 'Veuillez saisir un pseudo'
+        lblPseudo: 'Veuillez saisir un pseudo :'
         lblName: 'Veuillez saisir votre nom :'
         lblFirstName: 'Veuillez saisir votre prénom :'
         lblMail: 'Veuillez saisir votre email :'

@@ -2,7 +2,9 @@
 
 namespace App\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
+
 
 /**
  * Themes
@@ -24,7 +26,8 @@ class Themes
     /**
      * @var string|null
      *
-     * @ORM\Column(name="name", type="string", length=255, nullable=true)
+     * @ORM\Column(name="name", type="string", length=255, nullable=false)
+     * @Assert\NotBlank
      */
     private $name;
 

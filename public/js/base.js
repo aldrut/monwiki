@@ -1,9 +1,8 @@
 /**
- * Convertit en majuscule 
+ * Convertit La première lettre en majuscule 
  * @param {*} obj 
  * @returns 
  */
-
 
 $('input[name="firstname"]').keyup(function(evt){
 
@@ -14,11 +13,17 @@ console.log(evt.target.value);
     $(this).val(() => { return txt.substr(0,1).toUpperCase() + txt.substr(1)  });
 });
 
-$('input[name="name"]').keyup(function(evt){
-    var txt = $(this).val();
+/**
+ * Convertit en majuscule 
+ * @param {*} obj 
+ * @returns 
+ */
 
-    $(this).val(()=>{ return txt.toUpperCase( ); });
+// $('input[name="name"]').keyup(function(evt){
+//     var txt = $(this).val();
+
+//     $(this).val(()=>{ return txt.toUpperCase( ); });
     
-});
+// });
 
 

@@ -18,7 +18,7 @@
 	</style>
 
 	<div class="example-wrapper">
-		<div class="container-fluid">
+		<div class="container">
 			<div class="row">
 				<div class="col text-center"><h1>{{titreContentNewsletter}} {{titreGeneral}}</h1></div>
 			</div>
@@ -39,25 +39,21 @@
 					</div>
 				</div>
 				<div class="col">
-					<form action="" method="post">
+					{{form_start(form)}} 
 						<div class="row">
 							<div class="col border border-info text-center rounded-3"><i class="bi bi-newspaper"></i>&nbsp;&nbsp;Inscription à la  newsletter</div>
 						</div>
 						<div class="row justify-content-center d-flex">
-							<div class="col-4"></div>
-							<div class="col-4">
-								<div class="row mt-2"><label for="mail">{{lblMail}}</label></div>
-								<div class="row mt-2"><input type="email" id="mail" name="mail" placeholder={{formatMail}}></div>
-								<div class="row mt-2"><input type="submit" class="btn btn-outline-primary" value={{btnInscription}}></div>
+							<div class="col-3"></div>
+							<div class="col-6">
+								<div class="row mt-2"><input type="email" id="mail" name="mail" class="inputInscription" placeholder={{formatMail}}></div>
+								<div class="row mt-2"><button type="submit" class="btn btn-outline-primary"><i class="bi bi-box-arrow-right"></i> {{btnInscription}}</button></div>
 							</div>
-							<div class="col-4"></div>
+							<div class="col-3"></div>
 							</div>
-						
-							
-							
-							
+							{{form_errors(form)}}
 						</div>
-					</form>
+					{{form_end(form)}}
 				</div>
 			</div>
 		</div>

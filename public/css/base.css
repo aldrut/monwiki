@@ -4,7 +4,7 @@
     --bgSkyBlue : #00c3ff;
 }
 body{
-    padding-top: 200px;
+    padding-top: 100px;
     
 }
 
@@ -62,6 +62,11 @@ textarea
     height: 50px;
     
 }
+.inputInscription
+{
+    width: 300px;
+}
+
 
 
 

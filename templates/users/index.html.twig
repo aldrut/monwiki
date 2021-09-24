@@ -25,52 +25,54 @@
                 </div>
 			</div>
 			<div class="row">
-				<div class="col bgInscription text-white">Renseignements obligatoires</div>
+				&nbsp;
 			</div>
 			<form action="" method="post">
                 {# Section Name #}
 				    <div class="row mt-2">
-                        <div class="col-4 "><label class="inscription" for="name">{{lblName}}</div>
-					    <div class="col"><input type="text" id="name" name="name" onkeypress="return (event.charCode >=97 && event.charCode <=122)"></div>
+                        <div class="col-5"><label class="inscription" for="name">{{lblPseudo}}</div>
+					    <div class="col"><input type="text" id="name" name="name"class="inputInscription" ></div>
 				    </div>
-                {# Section firstname #}
-				    <div class="row mt-2 boder border-top">
-					    <div class="col-4 "><label class="inscription" for="firstname">{{lblFirstName}}</div>
-					    <div class="col"><input type="text" id="firstname" name="firstname" onkeypress="return (event.charCode >=97 && event.charCode <=122)"></div>
-				    </div>
+                    <hr>
                 {# Section Mail #}
-                    <div class="row mt-2 boder border-top">
-                        <div class="col-4"><label class="inscription" for="mail">{{lblMail}}</div>
-                        <div class="col"><input type="email" id="mail" name="mail"></div>
+                    <div class="row mt-2">
+                        <div class="col-5 mx-auto"><label class="inscription" for="mail">{{lblMail}}</div>
+                        
+                        <div class="col"><input type="email" id="mail" name="mail"class="inputInscription"></div>
                     </div>
-               
+                    <hr>
                 {# Section PWD #}
-                    <div class="row mt-2 boder border-top">
-                        <div class="col-4"><label class="inscription" for="pass">{{lblPwd}}</div>
-                        <div class="col"><input type="password" id="pass" name="pass"></div>
+                    <div class="row mt-2 ">
+                        <div class="col-5"><label class="inscription" for="pass">{{lblPwd}}</div>
+                        <div class="col"><input type="password" id="pass" name="pass"class="inputInscription" min="8"></div>
                     </div>
+                    <hr>
                 {# Section PWD 2 #}
-                    <div class="row mt-2 boder border-top">
-                        <div class="col-4"><label class="inscription" for="pass2">{{lblPwd2}}</div>
-                        <div class="col"><input type="password" id="pass2" name="pass2"></div>
+                    <div class="row mt-2">
+                        <div class="col-5"><label class="inscription" for="pass2">{{lblPwd2}}</div>
+                        <div class="col"><input type="password" id="pass2" name="pass2" class="inputInscription"></div>
                     </div>
+                    <hr>
                 {# SECTION PHONE #}
-                    <div class="row mt-2 boder border-top">
-                        <div class="col-4"><label class="inscription" for="phone">{{lblPhone}}</div>
+                    <div class="row mt-2 d-none">
+                        <div class="col-4 "><label class="inscription" for="phone">{{lblPhone}}</div>
                         <div class="col"><input type="text" id="phone" name="phone" onkeypress="return event.charCode >= 8 && event.charCode <= 57"></div>
                     </div>
+                    
                 {# SECTION NBQUESTION CACHEE #}
                     <div class="row mt-2 d-none boder border-top">
                         <div class="col-4"><label class="inscription" for="question">{{lblNbQuestion}}</div>
                         <div class="col"><input type="number" id="question" name="question" value="0" min='0'></div>
                     </div>
+                    
                 {# SECTION NBRESPONSE CACHEE #}
                     <div class="row mt-2 d-none boder border-top">
                         <div class="col-4"><label class="inscription" for="response">{{lblNbResponse}}</div>
                         <div class="col"><input type="number" id="response" name="response" value="0" min='0'></div>
                     </div>
+                    
                 {# SECTION CHECKBOX AUTORISATION #}
-                    <div class="row">
+                    <div class="row mt-5">
                         <div class="col-1">
                             <input type="checkbox" id="autorisation" name="autorisation">
                         </div>
@@ -80,7 +82,7 @@
                     </div>
                 {# SECTION BOUTON VALIDATION & RESET #}
 
-                    <div class="row">
+                    <div class="row mt-5">
                         <div class="col d-grid gap-2">
                             <input class="btn btn-outline-primary" type="submit" value={{btnTxtInscription}}>
                             <input class="btn btn-outline-danger" type="submit" value={{btnTxtReset}}>
