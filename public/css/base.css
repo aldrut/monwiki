@@ -97,6 +97,15 @@ textarea
     text-decoration: underline;
 
 }
+/*CSS commentaire*/
+
+.commentary_box{
+    border: solid 1px darkgrey;
+    margin-bottom: 3px;
+    margin-left: 20px;
+    max-width:90% ;
+    box-shadow:inset 1px 1px 12px darkgrey;
+}
 
 
 
