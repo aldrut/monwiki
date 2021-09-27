@@ -14,9 +14,9 @@
     <h4 class="commantary p-2">Les commentaire :</h4>
     {% for commentaries in commentary %}
     <div class="commentary_box">
-    <div class="commentary_userName">{{article.users.name}}</div>
+    <div class="commentary_userName">écrit par : {{article.users.name}}</div>
     <span>{{commentaries.message}}</span>
-      <div>{{commentaries.getPostDateString()}}</div>
+      <div class ="commentary_postDate" >{{commentaries.getPostDateString()}}</div>
     </div>
     {% endfor %}
     <a class="btn btn-outline-secondary" href="/commentary/{{article.id}}/{{article.title|slice(0,100)}}">commenter</a>
