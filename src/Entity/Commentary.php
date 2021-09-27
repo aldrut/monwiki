@@ -58,6 +58,12 @@ class Commentary
     {
         return $this->postDate;
     }
+    public function getPostDateString(): string
+    {
+        $indexDay = $this->postDate->format("N")-1;
+        $jours=["Lun","Mar","Mer","Jeu","Ven","Sam","Dim"];
+        return $jours[$indexDay] . $this->postDate->format(" d/m/y H:i");
+    }
 
     public function setPostDate(?\DateTimeInterface $postDate): self
     {

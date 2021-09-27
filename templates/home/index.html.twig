@@ -17,14 +17,14 @@
         </div>
         <div class="col-10">
             <div class="row">
-                {% for articles in article %}
+                {% for article in articles %}
                     <div class="col-6 pt-3 Pr">
                         <div class="card">
                             <div class="card-body">
-                                <h2 class="card-title">{{articles.title}}</h2>
-                                <p class="card-text">{{articles.content|slice(0,250) ~ '...'}}</p>
-                                <p class="card-text"><small class="text-muted">{{articles.getPostDateString()}}</small></p>
-                                <a class="btn btn-outline-secondary" href="/articles/{{articles.id}}/{{articles.title|slice(0,100)}}">Lire l'article</a>
+                                <h2 class="card-title">{{article.title}}</h2>
+                                <p class="card-text">{{article.content|slice(0,250) ~ '...'}}</p>
+                                <p class="card-text"><small class="text-muted">{{article.getPostDateString()}}</small></p>
+                                <a class="btn btn-outline-secondary" href="/articles/{{article.id}}/{{article.title|slice(0,100)}}">Lire l'article</a>
                             </div>
                         </div>
                     </div>

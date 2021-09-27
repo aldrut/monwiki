@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Entity\Themes;
 use App\Entity\Article;
 
+
 class HomeController extends AbstractController
 {
     /**
@@ -19,12 +20,13 @@ class HomeController extends AbstractController
         $themes = $this->getDoctrine()
                         ->getRepository(Themes::class)
                         ->findAll();
-        $article = $this->getDoctrine()
+        $articles = $this->getDoctrine()
                         ->getRepository(Article::class)
-                        ->findAll();
+                        ->findAllPublished();
+                        
         return $this->render('home/index.html.twig', [
             'themes'=>$themes,
-            'article'=>$article,
+            'articles'=>$articles,
         ]);
     }
 }

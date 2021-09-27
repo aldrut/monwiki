@@ -18,6 +18,15 @@ class ArticleRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Article::class);
     }
+    public function findAllPublished($maxResults = 2){
+        $qd = $this->createQueryBuilder('art');
+        return $qd->where($qd->expr()->neq('art.postDate', '?1'))
+                  ->setParameter(1, new \DateTime())
+                  ->orderBy('art.postDate', 'DESC')
+                  ->setMaxResults($maxResults)
+                  ->getQuery()
+                  ->getResult();
+    }
 
     // /**
     //  * @return Article[] Returns an array of Article objects
