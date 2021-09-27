@@ -7,11 +7,16 @@
         <h3 class="article_title">{{ article.title }}</h3>
         <div class="article_content">{{article.content}}</div>
         <div class="article_files"> un fichier a dl</div>
-        <span class="article_userName">Rédiger par : Nom de L'auteur /</span>
+        <span class="article_userName">Rédiger par : {{article.users.name}} /</span>
         <span class="article_postDate">Le : {{article.getPostDateString()}}</span>
     </div>
     </br>
     <h4 class="commantary p-2">Les commentaire :</h4>
-
-    
+    {% for commentaries in commentary %}
+    <div class="article_box p-3">
+    <span>{{commentaries.message}}</span>
+     <span>{{article.users.name}}</span>
+      <span>{{commentaries.getPostDateString()}}</span>
+    </div>
+    {% endfor %}
 {% endblock %}

@@ -139,6 +139,13 @@ class Article
     /**
      * @return Collection|Commentary[]
      */
+
+    public function getLastCommentaryCollection(){
+
+    
+        
+    }
+    
     public function getCommentaries(): Collection
     {
         return $this->commentaries;

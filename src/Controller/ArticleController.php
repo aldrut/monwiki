@@ -16,6 +16,10 @@ class ArticleController extends AbstractController
      */
     public function index(int $id, string $partialTitle): Response
     {
+        $commentary = $this ->getDoctrine()
+                            ->getRepository(Commentary::class)
+                             ->findAll();
+
         $article = $this->getDoctrine()
                         ->getRepository(Article::class)
                         ->find($id);
@@ -27,6 +31,7 @@ class ArticleController extends AbstractController
         return $this->render('article/index.html.twig', [
             'id' => $id,
             'article'=>$article,
+            'commentary'=>$commentary
         ]);
     }
 
