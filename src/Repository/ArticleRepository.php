@@ -18,7 +18,7 @@ class ArticleRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Article::class);
     }
-    public function findAllPublished($maxResults = 2){
+    public function findAllPublished($maxResults = 4){
         $qd = $this->createQueryBuilder('art');
         return $qd->where($qd->expr()->neq('art.postDate', '?1'))
                   ->setParameter(1, new \DateTime())

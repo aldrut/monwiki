@@ -10,7 +10,7 @@
             <ul class="nav flex-column bg-menu p-2">
             {% for theme in themes %}
                 <li class="nav-item">
-                    <a class="nav-link active text-white" aria-current="page" href="#">{{theme.name}}</a>
+                    <a class="nav-link active text-white" aria-current="page" href="/themes/{{theme.id}}/{{theme.name|slice(0,100)}}">{{theme.name}}</a>
                 <li>
             {% endfor %}
             </ul>

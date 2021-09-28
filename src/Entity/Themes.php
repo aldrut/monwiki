@@ -26,6 +26,7 @@ class Themes
 
     /**
      * @ORM\OneToMany(targetEntity=Article::class, mappedBy="themes")
+     * @ORM\OrderBy({"postDate"="DESC"})
      */
     private $articles;
 
@@ -79,5 +80,11 @@ class Themes
         }
 
         return $this;
+    }
+    public function getLastPublishedArticle() : ?Article
+    {
+        if(!$this->getArticles()->isEmpty() && $this->getArticles()->first()->getPublishedAt()){
+            return $this->getArticles()->first();
+        }
     }
 }

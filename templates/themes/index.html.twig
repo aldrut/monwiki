@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{themes.name}}{% endblock %}
+
+{% block content %}
+<div class="container-fluid ">
+    <div class="row">
+        <div class="col-2 nopad">
+            <ul class="nav flex-column bg-menu p-2">
+            {% for theme in themes %}
+                {% if theme.id != theme->query($id) %}{% endif %}
+                
+                <li class="nav-item">
+                    <a class="nav-link active text-white" aria-current="page" href="/themes/{{theme.id}}/{{thmes.name|slice(0,100)}}">{{theme.name}}</a>
+                <li>
+            {% endfor %}
+            </ul>
+        </div>
+{% endblock %}
