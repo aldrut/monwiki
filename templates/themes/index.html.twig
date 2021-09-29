@@ -7,13 +7,31 @@
     <div class="row">
         <div class="col-2 nopad">
             <ul class="nav flex-column bg-menu p-2">
-            {% for theme in themes %}
-                {% if theme.id != theme->query($id) %}{% endif %}
-                
+            {% for theme in otherThemes %}
+            {% if theme.id != id %}
                 <li class="nav-item">
-                    <a class="nav-link active text-white" aria-current="page" href="/themes/{{theme.id}}/{{thmes.name|slice(0,100)}}">{{theme.name}}</a>
+                    <a class="nav-link active text-white" aria-current="page" href="/themes/{{theme.id}}/{{theme.name|slice(0,100)}}">{{theme.name}}</a>
                 <li>
+                {% endif %}
             {% endfor %}
             </ul>
         </div>
+        <div class="col-10">
+            <div class="row">
+                {% for article in themes.articles %}
+                    <div class="col-6 pt-3 Pr">
+                        <div class="card">
+                            <div class="card-body">
+                                <h2 class="card-title">{{article.title}}</h2>
+                                <p class="card-text">{{article.content|slice(0,250) ~ '...'}}</p>
+                                <p class="card-text"><small class="text-muted">{{article.getPostDateString()}}</small></p>
+                                <a class="btn btn-outline-secondary" href="/articles/{{article.id}}/{{article.title|slice(0,100)}}">Lire l'article</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>  
+        </div>
+    </div>
+</div>
 {% endblock %}

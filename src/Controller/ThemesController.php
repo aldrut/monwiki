@@ -10,7 +10,7 @@ use App\Entity\Themes;
 class ThemesController extends AbstractController
 {
     /**
-     * @Route("/themes", name="themes")
+     *  @Route("/themes/{id}/{partialTitle}", name="themes_detail")
      */
     public function index(int $id, string $partialTitle): Response
     {
@@ -20,10 +20,14 @@ class ThemesController extends AbstractController
         if(!isset($themes)){
             return $this->redirectToRoute('home');
         }
+        $otherThemes = $this->getDoctrine()
+                            ->getRepository(Themes::class)
+                            ->findAll();
 
         return $this->render('themes/index.html.twig', [
             'id'=>$id,
             'themes' => $themes,
+            'otherThemes'=>$otherThemes,
         ]);
     }
 }
