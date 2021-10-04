@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3307
--- Généré le : mer. 22 sep. 2021 à 09:26
+-- Généré le : lun. 04 oct. 2021 à 07:39
 -- Version du serveur :  10.4.13-MariaDB
 -- Version de PHP : 7.4.9
 
@@ -38,7 +38,18 @@ CREATE TABLE IF NOT EXISTS `article` (
   PRIMARY KEY (`id`),
   KEY `IDX_23A0E6667B3B43D` (`users_id`),
   KEY `IDX_23A0E6694F4A9D2` (`themes_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `article`
+--
+
+INSERT INTO `article` (`id`, `title`, `post_date`, `content`, `users_id`, `themes_id`) VALUES
+(1, 'Le HTML pour les nuls comme LeNain', '2021-09-22 14:05:20', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.\r\n\r\nThe standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.', 67, 1),
+(2, 'article bidon', '2021-09-23 13:29:29', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.\r\n\r\nThe standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.', 68, 4),
+(3, 'article bidon 2', '2021-09-23 13:29:29', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.\r\n\r\nThe standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.', 70, 2),
+(4, 'article bidon 3', '2021-09-28 13:17:21', '\"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\"', 71, 3),
+(5, 'article bidon 4', '2021-09-28 13:17:21', '\"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?\"214564', 69, 1);
 
 -- --------------------------------------------------------
 
@@ -55,7 +66,15 @@ CREATE TABLE IF NOT EXISTS `commentary` (
   `article_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `IDX_1CAC12CA7294869C` (`article_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `commentary`
+--
+
+INSERT INTO `commentary` (`id`, `message`, `post_date`, `img_src`, `article_id`) VALUES
+(1, 'salut on veut plus de php et js moin de symfony', '2021-09-27 09:15:32', NULL, 2),
+(2, 'Non synfonuy c\'est trop bien ..... MDR', '2021-09-27 09:15:32', NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -85,7 +104,8 @@ INSERT INTO `doctrine_migration_versions` (`version`, `executed_at`, `execution_
 ('DoctrineMigrations\\Version20210922090325', '2021-09-22 09:04:03', 157),
 ('DoctrineMigrations\\Version20210922090727', '2021-09-22 09:07:34', 2146),
 ('DoctrineMigrations\\Version20210922091553', '2021-09-22 09:16:21', 576),
-('DoctrineMigrations\\Version20210922092402', '2021-09-22 09:24:10', 6026);
+('DoctrineMigrations\\Version20210922092402', '2021-09-22 09:24:10', 6026),
+('DoctrineMigrations\\Version20211004063248', '2021-10-04 06:33:15', 546);
 
 -- --------------------------------------------------------
 
@@ -137,6 +157,32 @@ CREATE TABLE IF NOT EXISTS `themes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Déchargement des données de la table `themes`
+--
+
+INSERT INTO `themes` (`id`, `name`) VALUES
+(1, 'HTML'),
+(2, 'CSS'),
+(3, 'Java Script'),
+(4, 'PHP');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `mail` varchar(180) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `roles` longtext COLLATE utf8mb4_unicode_ci NOT NULL COMMENT '(DC2Type:json)',
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `UNIQ_8D93D6495126AC48` (`mail`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -149,7 +195,7 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `firstname` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `first_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `mail` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `pwd` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -167,7 +213,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `firstname`, `mail`, `pwd`, `phone`, `nbresponse`, `role`, `newsletter`, `activated`, `subdate`, `imgsrc`, `nbquestion`) VALUES
+INSERT INTO `users` (`id`, `name`, `first_name`, `mail`, `pwd`, `phone`, `nbresponse`, `role`, `newsletter`, `activated`, `subdate`, `imgsrc`, `nbquestion`) VALUES
 (67, 'DRUT', 'Alexandre', 'adrut@free.fr', NULL, NULL, 1, 'admin', 1, 1, '2021-09-21 12:55:00', '/ttt', 1),
 (68, 'DRUT', 'Alexandre', 'adrut@free.fr', NULL, NULL, 1, 'admin', 1, 1, '2021-09-21 12:55:00', '/ttt', 1),
 (69, 'DRUT', 'Alexandre', 'adrut@free.fr', NULL, NULL, 1, 'admin', 1, 1, '2021-09-21 12:55:00', '/ttt', 1),
