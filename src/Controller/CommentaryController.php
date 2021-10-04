@@ -9,9 +9,9 @@ use Symfony\Component\Routing\Annotation\Route;
 class CommentaryController extends AbstractController
 {
     /**
-     * @Route("/commentary", name="commentary")
+     * @Route("/commentary/{id}/{partialTitle}", name="commentary_article")
      */
-    public function index(): Response
+    public function index(int $id, string $partialTitle): Response
     {
         return $this->render('commentary/index.html.twig', [
             'controller_name' => 'CommentaryController',
