@@ -16,10 +16,9 @@ class ThemesFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('name', PasswordType::class, ['mapped' => false, 'required' => true])
-            ->add('submit',SubmitType::class,
-                    ['attr'=> ['class'=> 'btn btn-outline-primary']
+            ->add('name',TextType::class,['attr'=> ['placeholder'=>'Themes' ]])
+            
+            ->add('Sauvegarder' ,SubmitType::class,['attr'=> ['class'=> 'btn btn-outline-primary']
                     ])
           
         ;

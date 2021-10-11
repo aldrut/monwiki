@@ -47,4 +47,10 @@ class UsersRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findOneByEmail() :bool
+    {
+        return false;
+
+    }
 }

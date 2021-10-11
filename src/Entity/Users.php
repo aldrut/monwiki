@@ -77,7 +77,7 @@ class Users
      *
      * @ORM\Column(name="newsletter", type="boolean", nullable=true)
      */
-    private $newsletter;
+    private $newsletter = true;
 
     /**
      * @var bool|null
@@ -127,7 +127,7 @@ class Users
      */
     public function __construct()
     {
-        $this->interest = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->interest = new ArrayCollection();
     }
 
 

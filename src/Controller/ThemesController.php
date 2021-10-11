@@ -24,7 +24,7 @@ class ThemesController extends AbstractController
     // }
 
 /**
- * @Route("/themes/show")
+ * @Route("/themes/add", name="addThemes")
  *
  * @param Environment $twig
  * @return void
@@ -33,14 +33,14 @@ class ThemesController extends AbstractController
     {
         $theme = new Themes();
 
-        $form = $this->createForm(ThemesFormType::class,$theme);
+     $form = $this->createForm(ThemesFormType::class,$theme);
+
         $form->handleRequest($request);
 
         if($form->isSubmitted() && $form->isValid())
         {
-            $pwd = $form->get('name')->getData();
-
-            dd($pwd);
+            //$pwd = $form->get('name')->getData();
+           // dd($pwd);
 
             $emi->persist($theme);
             $emi->flush();

@@ -39,21 +39,28 @@
 					</div>
 				</div>
 				<div class="col">
-					{{form_start(form)}} 
+					{{form_start(newsletter_form)}} 
 						<div class="row">
 							<div class="col border border-info text-center rounded-3"><i class="bi bi-newspaper"></i>&nbsp;&nbsp;Inscription à la  newsletter</div>
 						</div>
 						<div class="row justify-content-center d-flex">
 							<div class="col-3"></div>
 							<div class="col-6">
-								<div class="row mt-2"><input type="email" id="mail" name="mail" class="inputInscription" placeholder={{formatMail}}></div>
-								<div class="row mt-2"><button type="submit" class="btn btn-outline-primary"><i class="bi bi-box-arrow-right"></i> {{btnInscription}}</button></div>
+							<div class="row mt-2">
+								<div class="col"> Mail :</div>
+								<div class="col"> {{form_widget(newsletter_form.mail)}}</div>
+							</div>
+							<div class="row mt-2">
+								<div class="col"> Role :</div>
+								<div class="col"> {{form_widget(newsletter_form.role)}}</div>
+							</div>
+							<div class="row mt-2">{{form_widget(newsletter_form.Sauvegarder)}}</div>
 							</div>
 							<div class="col-3"></div>
 							</div>
-							{{form_errors(form)}}
+							{{form_errors(newsletter_form)}}
 						</div>
-					{{form_end(form)}}
+					{{form_end(newsletter_form)}}
 				</div>
 			</div>
 		</div>

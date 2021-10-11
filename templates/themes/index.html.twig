@@ -11,7 +11,28 @@
 
 <h2>Formulaire des thèmes</h2>
 
-{{ form(themes_form)}}
+{# {{form_start(themes_form, {'action': path('addThemes')})}} #}
+{{form_start(themes_form)}}
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col">Nom du themes
+        {{ form_widget(themes_form.name) }}
+        </div>
+    </div>
+    <div class="row">
+        <div class="col">
+        {{ form_widget(themes_form.Sauvegarder) }}
+        </div>
+    </div>
+</div>
+
+{{form_end(themes_form)}}
+
+
+
 
 
 
